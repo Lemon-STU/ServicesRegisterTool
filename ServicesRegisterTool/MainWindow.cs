@@ -86,7 +86,7 @@ namespace ServicesRegisterTool
                 string exeFile = ServiceFilePath;// 
                 if (File.Exists(exeFile))
                 {
-                    var executeResult = CommandHelper.ExecuteCommand($"sc create {ServiceName} binPath={exeFile}",
+                    var executeResult = CommandHelper.ExecuteCommand($"sc create {ServiceName} binPath=\"{exeFile}\"",
                         out int exitCode, out bool errOccurred, out string errMsg);
                     AppendLog(executeResult);
                     if (exitCode == 0)
